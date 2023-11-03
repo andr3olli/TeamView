@@ -16,9 +16,6 @@ public class Team {
         this.playerManager = new PlayerEntityManager();
     }
 
-    public Team(String teamName, ArrayList<Object> objects) {
-    }
-
     public void addPlayer(int playerNumber, String name, int age, Position position, String nationality, String playstyle, Contract contract){
         this.playerManager.addPlayer(playerNumber, name, age, position, nationality, playstyle, contract);
     }
@@ -39,4 +36,7 @@ public class Team {
     }
 
 
+    public String getTeamName() {
+        return this.teamName;
+    }
 }
