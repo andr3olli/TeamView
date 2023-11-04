@@ -1,6 +1,9 @@
 package controller;
 
+import manager.NavigationManager;
 import model.UserModel;
+import model.manager.TeamEntityManager;
+import view.HomeScreen;
 import view.LoginScreen;
 
 import javax.swing.*;
@@ -31,6 +34,7 @@ public class LoginController {
             loginScreen.clearInputFields();
 
             JOptionPane.showMessageDialog(null, "Login successful!");
+            navigateToHomeScreen();
         } else {
             JOptionPane.showMessageDialog(null, "Invalid credentials, Please try again.");
         }
@@ -38,6 +42,15 @@ public class LoginController {
 
     private boolean isValidCredentials(String username, String password){
         return username.equals("admin") && password.equals("admin");
+    }
+
+    private void navigateToHomeScreen() {
+        TeamEntityManager teamManager = new TeamEntityManager();
+        teamManager.addTeam("1.FC Köln");
+        teamManager.addTeam("Bayern München");
+        HomeScreen homeScreen = new HomeScreen(teamManager);
+
+        NavigationManager.getInstance().navigateTo(homeScreen);
     }
 
     public static void main(String[] args) {

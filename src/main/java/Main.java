@@ -1,5 +1,3 @@
-package org.example;
-
 import view.HomeScreen;
 import view.LoginScreen;
 import model.manager.TeamEntityManager;
