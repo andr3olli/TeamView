@@ -1,10 +1,7 @@
 package org.example;
 
-import gui.HomeScreen;
-import gui.LoginScreen;
-import model.Contract;
-import model.Position;
-import model.Team;
+import view.HomeScreen;
+import view.LoginScreen;
 import model.manager.TeamEntityManager;
 
 import javax.swing.*;
