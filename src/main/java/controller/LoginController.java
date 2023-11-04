@@ -48,7 +48,9 @@ public class LoginController {
         TeamEntityManager teamManager = new TeamEntityManager();
         teamManager.addTeam("1.FC Köln");
         teamManager.addTeam("Bayern München");
-        HomeScreen homeScreen = new HomeScreen(teamManager);
+
+        HomeScreen homeScreen = new HomeScreen();
+        homeScreen.setTeamManager(teamManager);
 
         NavigationManager.getInstance().navigateTo(homeScreen);
     }

@@ -1,3 +1,5 @@
+import controller.LoginController;
+import controller.TeamController;
 import view.HomeScreen;
 import view.LoginScreen;
 import model.manager.TeamEntityManager;
@@ -9,13 +11,20 @@ public class Main {
 
         SwingUtilities.invokeLater(() -> {
             TeamEntityManager teamManager = new TeamEntityManager();
-            teamManager.addTeam("1.FC Köln");
-            teamManager.addTeam("Bayern München");
+            teamManager.addTeam("1. FC Köln");
+            teamManager.addTeam("1. FC Köln II");
 
-            HomeScreen homeScreen = new HomeScreen(teamManager);
-            LoginScreen loginScreen = new LoginScreen();
+            HomeScreen homeScreen = new HomeScreen();
 
-            loginScreen.setVisible(true);
+            homeScreen.setTeamManager(teamManager);
+
+            // Create the controllers
+            TeamController teamController = new TeamController(teamManager, homeScreen);
+            // Set the controllers for the views
+
+            homeScreen.setTeamController(teamController);
+
+            homeScreen.setVisible(true);
         });
 
     }

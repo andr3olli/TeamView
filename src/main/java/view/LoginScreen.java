@@ -14,10 +14,17 @@ public class LoginScreen extends JFrame {
     private JLabel loginText;
 
     public LoginScreen() {
+        initializeFrame();
         initializeComponents();
         setupLayout();
     }
 
+    private void initializeFrame() {
+        setTitle("Login Screen");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(300, 150);
+        setLocationRelativeTo(null);
+    }
     private void initializeComponents() {
         usernameField = new JTextField(20);
         passwordField = new JPasswordField(20);
@@ -26,19 +33,13 @@ public class LoginScreen extends JFrame {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                // handle in controller
             }
         });
     }
 
     private void setupLayout(){
-        try {
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }
-
-        setLayout( new GridLayout(3,2));
+        this.setLayout( new GridLayout(3,2));
         add(new JLabel("Username:"));
         add(usernameField);
 
@@ -47,11 +48,6 @@ public class LoginScreen extends JFrame {
 
         add(new JLabel());
         add(loginButton);
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Login Screen");
-        setSize(300, 150);
-        setLocationRelativeTo(null);
     }
 
     public String getUsername(){
