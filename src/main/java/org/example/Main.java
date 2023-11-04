@@ -15,7 +15,7 @@ public class Main {
             teamManager.addTeam("Bayern München");
 
             HomeScreen homeScreen = new HomeScreen(teamManager);
-            LoginScreen loginScreen = new LoginScreen(homeScreen);
+            LoginScreen loginScreen = new LoginScreen();
 
             loginScreen.setVisible(true);
         });
